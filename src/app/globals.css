@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    background-color: #000;
+    color: #e9e9e9;
+    --desc : #828385;
+    --box : #0f0e0e;
+    --border : rgb(255 255 255 / 0.15);
+    --mainShadow : rgba(255, 255, 255, 0.5) 1px 1px 115px -65px;
+    --hover : #e9e9e9;
+    --imp : #373737fe;
+  }
+    .blured {
+  backdrop-filter: blur(6px) saturate(1.7);
+  background: #08080847;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
+}
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    background-color: #e9e9e9;
+    color: #0a0a0a;
+    --desc : #555;
+    --box : #d4d4d4;
+    --border: rgb(0 0 0 / 0.15);
+    --mainShadow : rgb(0 0 0) 1px 1px 139px -73px;
+    --hover : #0a0a0a;
+    --imp : #bababafe;
+  }
+  .blured{
+    backdrop-filter: blur(6px) saturate(1.7);
+    background: #cfcfcf47;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
+  }
+}
+
+:root {
+  --titleFont: "acorn-semibold";
+  --bodyFont: "ubuntu";
+  --darkMode: #242424;
+  --semiGrey: #888;
+  --fadeUp: fadeUp 0.9s;
+  --titleFontSize: clamp(4rem, 9vw, 10rem);
+  --titleLineHeight: calc(100% - 10%);
+  font-family: var(--titleFont);
+}
+::selection {
+  color: #e9e9e9;
+  background: #888;
+}
+::-moz-selection {
+  color: #e9e9e9;
+  background: #888;
+}
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 2px 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+img{
+  width: auto;
+  height: auto;
+}
+@font-face {
+  font-family: acorn-semibold;
+  src: url(./fonts/Acorn-SemiBold.woff2) format("woff2"),
+    url(./fonts/Acorn-SemiBold.woff) format("woff");
+}
+@font-face {
+  font-family: ubuntu;
+  src: url(./fonts/Ubuntu-Regular.ttf);
+}
+.title {
+  font-size: var(--titleFontSize);
+  line-height: var(--titleLineHeight);
+}
+.fadeUp {
+  animation: var(--fadeUp);
+}
+.ubuntu {
+  font-family: var(--bodyFont) !important;
+}
+
+.active {
+  width: auto;
+  transition: opacity 0.3s, left 0.3s;
+  background-color: #373737a1;
+}
+.nextProject {
+  border: 1px solid #78797c;
+  font-family: var(--titleFont);
+  text-align: center;
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contactBot {
+  position: fixed;
+  font-family: var(--bodyFont);
+  z-index: 10;
+  padding: 0 0 1rem;
+  backdrop-filter: blur(3rem) saturate(1.3);
+  transition: bottom 0.7s ease-in-out;
+}
+.question {
+  border: 1px solid #5e5e5ec0;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  margin: 0.75rem 0;
+  width: fit-content;
+  border-radius: 9999px;
+}
+
+.uncopyable {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  pointer-events: none;
+}
+.loader {
+  display: inline-block;
+  background: #222;
+  background-image: linear-gradient(
+    to right,
+    #444 0,
+    #555 20%,
+    #444 40%,
+    #333 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 1000px 100%;
+  animation: 1s linear infinite loader;
+}
+@keyframes loader {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
