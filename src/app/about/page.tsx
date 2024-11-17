@@ -1,17 +1,12 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { contentful } from "@/contentful/contentful";
 import { useEffect, useRef, useState } from "react"
 
-const About: React.FC = () => {
+const About = ({ outSideWork, workItems, error }: { outSideWork: any[]; workItems: any[]; error: string | undefined }) => {
     const temp = useRef<number | null>(null);
     const weather = useRef(null);
     const [hoverIndex, setHoverIndex] = useState<number | null>(null);
-    const [outSideWork, setOutSideWork] = useState<any>([]);
-    const [workItems, setWorkItems] = useState<any>([]);
-    const [errors, setErrors] = useState<any>(null)
-
     useEffect(() => {
         const url = 'https://api.weatherapi.com/v1/current.json?key=009289972cfc4cbc9cc143815240107&q=Cairo&aqi=no';
         fetch(url)
@@ -20,33 +15,9 @@ const About: React.FC = () => {
                 temp.current = res.current.temp_c
                 weather.current = res.current.condition.text
             });
-
-        const getItems = async () => {
-            try {
-                const workItemsRes = await contentful.getEntries({
-                    content_type: 'workItems'
-                });
-                const outSideWorkRes = await contentful.getEntries({
-                    content_type: 'outSideWork'
-                });
-                setWorkItems(workItemsRes.items);
-                setOutSideWork(outSideWorkRes.items);
-                const randomItems: any = [];
-                while (randomItems.length < 2) {
-                    const randomIndex = Math.floor(Math.random() * outSideWorkRes.items.length);
-                    if (!randomItems.includes(outSideWorkRes.items[randomIndex])) {
-                        randomItems.push(outSideWorkRes.items[randomIndex]);
-                    }
-                }
-                setOutSideWork(randomItems);
-            } catch (error) {
-                setErrors(error)
-            }
-        }
-        getItems();
     }, []);
 
-    if (errors) {
+    if (error) {
         return (
             <div className="my-56 text-center ubuntu text-2xl">
                 404 | Something went wrong <br />
