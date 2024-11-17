@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import BotQuestions from '@/components/BotComponents/BotContent/BotQuestions';
 import BotAnswers from "@/components/BotComponents/BotContent/BotAnswers";
 import { contentful } from "@/contentful/contentful";
+import Image from "next/image";
 // import CloseSvg from '/Close.svg';
 
 const ContactBot = (props) => {
@@ -77,8 +78,12 @@ const ContactBot = (props) => {
                     <h2 className="textAcorn text-xl">Here&apos;s, Abdullah&apos;s Bot.</h2>
                     <p className="text-sm">Ask me a question.</p>
                 </div>
-                <img
+                <Image
                     src={'/Close.svg'}
+                    width={24}
+                    height={24}
+                    alt="Close"
+                    title={`${contactBotView ? 'Close Chat' : ''}`}
                     onClick={() => botView(prev => !prev)}
                     className=" cursor-pointer"
                 />

@@ -117,11 +117,13 @@ const About: React.FC = () => {
                                         onMouseEnter={() => setHoverIndex(index)}
                                         onMouseLeave={() => setHoverIndex(null)}
                                     >
-                                        <img
-                                            loading="lazy"
+                                        <Image
                                             width={item?.fields?.img?.fields?.file?.details?.image?.width}
                                             height={item?.fields?.img?.fields?.file?.details?.image?.height}
                                             src={item?.fields?.img?.fields?.file?.url} className="object-cover w-full h-[40rem] rounded-xl object-center"
+                                            alt="OutSideWork"
+                                            unoptimized
+                                            priority
                                         />
                                     </div>
                                 </div>

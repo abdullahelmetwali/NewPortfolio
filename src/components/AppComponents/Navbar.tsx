@@ -14,17 +14,23 @@ const NavBar = () => {
                 <nav className="flex justify-center">
                     <ul className="blured py-2 px-6 rounded-3xl flex gap-11 text-xl ubuntu mob:text-lg">
                         <li>
-                            <Link href={`/`} className={`${(pathname === '/' || pathname.includes('work') && !contactBotView) ? 'opacity-100' : 'opacity-50'}`}>
+                            <Link href={`/`} className={`${((pathname === '/' || pathname.includes('work')) && !contactBotView) ? 'opacity-100' : 'opacity-50'}`}
+                                onClick={() => setContactBotView(false)}
+                            >
                                 Work
                             </Link>
                         </li>
                         <li>
-                            <Link href={`/about`} className={`${(pathname === '/about' && !contactBotView) ? 'opacity-100' : 'opacity-50'}`}>
+                            <Link href={`/about`} className={`${(pathname === '/about' && !contactBotView) ? 'opacity-100' : 'opacity-50'}`}
+                                onClick={() => setContactBotView(false)}
+                            >
                                 About
                             </Link>
                         </li>
                         <li>
-                            <Link href={`/fun`} className={`${(pathname === '/fun' && !contactBotView) ? 'opacity-100' : 'opacity-50'}`}>
+                            <Link href={`/fun`} className={`${(pathname === '/fun' && !contactBotView) ? 'opacity-100' : 'opacity-50'}`}
+                                onClick={() => setContactBotView(false)}
+                            >
                                 Fun
                             </Link>
                         </li>
@@ -37,6 +43,9 @@ const NavBar = () => {
                 </nav>
             </header>
             <ContactBot contactBotView={contactBotView} setContactBotView={setContactBotView} />
+            {
+                contactBotView && <div className="fixed h-dvh w-full top-0 z-10 bg-transparent" onClick={() => setContactBotView(false)}></div>
+            }
         </>
     );
 };
