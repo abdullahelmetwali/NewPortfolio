@@ -1,6 +1,4 @@
 "use client";
-
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
 import ContactBot from "../BotComponents/ContactBot";
@@ -10,17 +8,6 @@ import { usePathname } from "next/navigation";
 const NavBar = () => {
     const [contactBotView, setContactBotView] = useState(false);
     const pathname = usePathname();
-    // useEffect(() => {
-    //     const allSec = document.querySelectorAll('.link')
-    //     allSec.forEach(sec => {
-    //         sec.addEventListener('mouseenter', () => {
-    //             sec.classList.add('active', 'transition-all', 'duration-200', 'ease-in-out');
-    //         })
-    //         sec.addEventListener('mouseleave', () => {
-    //             sec.classList.contains('active') ? sec.classList.remove('active') : '';
-    //         })
-    //     })
-    // })
     return (
         <>
             <header className="fixed top-0 left-0 w-full z-50 py-9">
