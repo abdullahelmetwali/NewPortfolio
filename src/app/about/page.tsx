@@ -3,8 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { contentful } from "@/contentful/contentful";
 import { useEffect, useRef, useState } from "react"
-import { Metadata } from "next";
-
 
 const About: React.FC = () => {
     const temp = useRef<number | null>(null);
