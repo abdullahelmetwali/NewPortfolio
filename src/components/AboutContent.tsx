@@ -29,11 +29,6 @@ const AboutContent = ({ outSideWork, workItems, error }: { outSideWork: any[]; w
     }
     return (
         <>
-            <div className="text-center uncopyable fadeUp my-52 mob:px-3 mob:mb-24">
-                <h1 className="title uncopyable">
-                    I'm Abdullah.
-                </h1>
-            </div>
             <main className="p-10 fadeUp grid grid-cols-2 justify-items-center items-center mob:grid-cols-1 mob:gap-10 mob:items-center">
                 <div className="w-1/2 mob:w-full">
                     <Image

@@ -1,13 +1,16 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import ContactBot from "../BotComponents/ContactBot";
 import { usePathname } from "next/navigation";
+import ContactBot from "../BotComponents/ContactBot";
 
 
-const NavBar = () => {
+const NavBar = ({ botAnswers }: { botAnswers: any }) => {
     const [contactBotView, setContactBotView] = useState(false);
     const pathname = usePathname();
+    const botView = () => {
+        setContactBotView(prev => !prev)
+    };
     return (
         <>
             <header className="fixed top-0 left-0 w-full z-50 py-9">
@@ -35,14 +38,16 @@ const NavBar = () => {
                             </Link>
                         </li>
                         <li>
-                            <button onClick={() => setContactBotView(prev => !prev)} className={`${contactBotView ? 'opacity-100' : 'opacity-50'} transition-all duration-150 ease-in-out`}>
+                            <button
+                                onClick={() => setContactBotView(prev => !prev)}
+                                className={`${contactBotView ? 'opacity-100' : 'opacity-50'} transition-all duration-150 ease-in-out`}>
                                 Contact
                             </button>
                         </li>
                     </ul>
                 </nav>
             </header>
-            <ContactBot contactBotView={contactBotView} setContactBotView={setContactBotView} />
+            <ContactBot setContactBotView={botView} contactBotView={contactBotView} botAnswers={botAnswers} />
             {
                 contactBotView && <div className="fixed h-dvh w-full top-0 z-10 bg-transparent" onClick={() => setContactBotView(false)}></div>
             }

@@ -1,12 +1,5 @@
-import { Metadata } from "next";
 import { contentful } from "@/contentful/contentful";
-import React from "react";
 import AboutContent from "@/components/AboutContent";
-
-export const metadata: Metadata = {
-    title: 'About',
-    description: 'Discover Abdullah ElMetwali’s journey as a Frontend Engineer with expertise in ReactJS, Next.js, JavaScript, TypeScript and a passion for clean code, performance optimization, and continuous learning. How it works with me, How I maintain my project, How it comes OUTSIDE.'
-};
 
 const AboutPage = async () => {
     let WorkItems: any = [];

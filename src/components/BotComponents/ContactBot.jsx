@@ -1,5 +1,4 @@
 "use client";
-import GetBotContact from "@/hooks/GetBotContact";
 import { useEffect, useRef, useState } from "react";
 import BotQuestions from '@/components/BotComponents/BotContent/BotQuestions';
 import BotAnswers from "@/components/BotComponents/BotContent/BotAnswers";
@@ -7,15 +6,15 @@ import Image from "next/image";
 
 const ContactBot = (props) => {
     const contactBotView = props.contactBotView;
-    const botView = props.setContactBotView;
-
+    const setContactBotView = props.setContactBotView;
+    const botAnswers = props.botAnswers;
+    const err = props.err;
     const [lastQuestion, setLastQuestion] = useState(null);
     const [lastAnswers, setLastAnswers] = useState([]);
     const [nowQuestion, setNowQuestion] = useState("");
     const [nowAnswers, setNowAnswers] = useState([]);
     const [visibleAnswers, setVisibleAnswers] = useState([]);
     const [showBotQuestions, setShowBotQuestions] = useState(false);
-    const [botAnswers, setBotAnswers] = useState([]);
     const botScroller = useRef(null);
     const botIntro = ["Hi!", "I'm Abdullah's Bot . I'm here to help you with any question you may need about Abdullah's Work . ", "How can I help you today ?"];
     const botQuestions = [
@@ -31,14 +30,6 @@ const ContactBot = (props) => {
             botScroller.current.scrollTop = botScroller.current.scrollHeight;
         }
     }, [lastQuestion, nowQuestion, visibleAnswers]);
-
-    useEffect(() => {
-        const getBotAnswers = async () => {
-            const { botAnswers } = await GetBotContact();
-            setBotAnswers(botAnswers)
-        };
-        getBotAnswers();
-    }, []);
 
     const handleQuestionClick = (question) => {
         setLastQuestion(nowQuestion);
@@ -77,7 +68,7 @@ const ContactBot = (props) => {
                     height={24}
                     alt="Close"
                     title={`${contactBotView ? 'Close Chat' : ''}`}
-                    onClick={() => botView(prev => !prev)}
+                    onClick={setContactBotView}
                     className=" cursor-pointer"
                 />
             </header>
