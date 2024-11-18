@@ -2,9 +2,8 @@
 import { useEffect, useRef, useState } from "react";
 import BotQuestions from '@/components/BotComponents/BotContent/BotQuestions';
 import BotAnswers from "@/components/BotComponents/BotContent/BotAnswers";
-import { contentful } from "@/contentful/contentful";
 import Image from "next/image";
-// import CloseSvg from '/Close.svg';
+import { clientContentful } from "@/contentful/clientContetful";
 
 const ContactBot = (props) => {
     const contactBotView = props.contactBotView;
@@ -36,7 +35,7 @@ const ContactBot = (props) => {
     useEffect(() => {
         const getBotAnswers = async () => {
             try {
-                const botRes = await contentful.getEntries({
+                const botRes = await clientContentful.getEntries({
                     content_type: "botContent"
                 });
                 setBotAnswers(botRes?.items)
