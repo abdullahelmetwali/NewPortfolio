@@ -5,7 +5,7 @@ import BotQuestions from '@/components/BotComponents/BotContent/BotQuestions';
 import BotAnswers from "@/components/BotComponents/BotContent/BotAnswers";
 import Image from "next/image";
 
-const ContactBot = async (props) => {
+const ContactBot = (props) => {
     const contactBotView = props.contactBotView;
     const botView = props.setContactBotView;
 
@@ -15,7 +15,7 @@ const ContactBot = async (props) => {
     const [nowAnswers, setNowAnswers] = useState([]);
     const [visibleAnswers, setVisibleAnswers] = useState([]);
     const [showBotQuestions, setShowBotQuestions] = useState(false);
-    const { botAnswers } = await GetBotContact();
+    const [botAnswers, setBotAnswers] = useState([]);
     const botScroller = useRef(null);
     const botIntro = ["Hi!", "I'm Abdullah's Bot . I'm here to help you with any question you may need about Abdullah's Work . ", "How can I help you today ?"];
     const botQuestions = [
@@ -31,6 +31,14 @@ const ContactBot = async (props) => {
             botScroller.current.scrollTop = botScroller.current.scrollHeight;
         }
     }, [lastQuestion, nowQuestion, visibleAnswers]);
+
+    useEffect(() => {
+        const getBotAnswers = async () => {
+            const { botAnswers } = await GetBotContact();
+            setBotAnswers(botAnswers)
+        };
+        getBotAnswers();
+    }, []);
 
     const handleQuestionClick = (question) => {
         setLastQuestion(nowQuestion);
