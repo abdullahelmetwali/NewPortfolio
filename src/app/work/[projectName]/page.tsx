@@ -9,7 +9,7 @@ export async function generateMetadata({ params }: { params: any }) {
     const { projectDT } = await GetProjectDetails({ projectName: projectName })
     return {
         title: projectDT?.fields?.projectName,
-        description: `${projectDT?.fields?.projectOverview} by Abdullah ElMetwali`
+        description: `${projectDT?.fields?.projectOverview} by Abdullah ELMetwali.`
     }
 }
 
