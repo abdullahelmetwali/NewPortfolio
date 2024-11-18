@@ -19,7 +19,7 @@ const AboutPage = async () => {
 
         WorkItems = workItemsRes.items;
 
-        let randomItems: any = [];
+        const randomItems: any = [];
         while (randomItems.length < 2) {
             const randomIndex = Math.floor(Math.random() * outSideWorkRes.items.length);
             if (!randomItems.includes(outSideWorkRes.items[randomIndex])) {
