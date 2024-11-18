@@ -12,6 +12,6 @@ const NavWrapper = async () => {
     } catch (error) {
         err = (error as Error)?.message || "Can't get data , Due to Network error";
     }
-    return <NavBar botAnswers={botAnswers} />
+    return <NavBar botAnswers={botAnswers} err={err} />
 }
 export default NavWrapper

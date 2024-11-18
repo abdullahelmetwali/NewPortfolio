@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import ContactBot from "../BotComponents/ContactBot";
 
 
-const NavBar = ({ botAnswers }: { botAnswers: any }) => {
+const NavBar = ({ botAnswers, err }: { botAnswers: any; err: string }) => {
     const [contactBotView, setContactBotView] = useState(false);
     const pathname = usePathname();
     const botView = () => {
@@ -47,7 +47,7 @@ const NavBar = ({ botAnswers }: { botAnswers: any }) => {
                     </ul>
                 </nav>
             </header>
-            <ContactBot setContactBotView={botView} contactBotView={contactBotView} botAnswers={botAnswers} />
+            <ContactBot setContactBotView={botView} contactBotView={contactBotView} botAnswers={botAnswers} err={err} />
             {
                 contactBotView && <div className="fixed h-dvh w-full top-0 z-10 bg-transparent" onClick={() => setContactBotView(false)}></div>
             }

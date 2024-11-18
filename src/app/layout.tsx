@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import NavBar from "@/components/AppComponents/Navbar";
 import Footer from "@/components/AppComponents/Footer";
 import NavWrapper from "@/components/AppComponents/NavWrapper";
 
@@ -27,4 +26,4 @@ export default function RootLayout({
       </body>
     </html>
   );
-}
+};

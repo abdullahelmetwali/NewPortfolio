@@ -52,6 +52,9 @@ const ContactBot = (props) => {
             );
         });
     };
+    if (err) {
+        return;
+    }
 
     return (
         <section
@@ -74,7 +77,7 @@ const ContactBot = (props) => {
             </header>
             <main className="p-4 h-[88%] overflow-y-scroll" ref={botScroller}>
                 <div className='my-4'>
-                    {botIntro.map((intro, index) => (
+                    {botIntro?.map((intro, index) => (
                         <p className='bg-[var(--imp)] cursor-pointer w-fit px-4 py-1 my-1 rounded-lg' key={index}>{intro}</p>
                     ))}
                 </div>
@@ -98,7 +101,7 @@ const ContactBot = (props) => {
                                     {nowQuestion}
                                 </span>
                             </div>
-                            {visibleAnswers.map((answer, answerInd) => (
+                            {visibleAnswers?.map((answer, answerInd) => (
                                 <div key={answerInd} className="grid">
                                     {
                                         answer !== "abdullahelmetwali@gmail.com" ? <p className="bg-[var(--imp)] px-4 py-2 my-1 w-fit rounded-lg" key={answerInd}> {answer} </p>
