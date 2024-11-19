@@ -14,7 +14,7 @@ const ImgLoading: React.FC<ImgLoadingProps> = ({ src, alt, width, height, title,
     return (
         <>
             {
-                !isLoading && <div className={`loader w-full h-[42rem] mob:h-[22rem] rounded-xl`}></div>
+                isLoading && <div className={`loader w-full h-[42rem] mob:h-[22rem] rounded-xl`}></div>
             }
             <Image
                 src={src}
@@ -25,7 +25,7 @@ const ImgLoading: React.FC<ImgLoadingProps> = ({ src, alt, width, height, title,
                 onLoad={() => setIsLoading(false)}
                 priority
                 unoptimized
-                className={`${!isLoading ? 'hidden' : 'block'} rounded-xl`}
+                className={`${isLoading ? 'hidden' : 'block'} rounded-xl`}
                 style={style}
             />
         </>
