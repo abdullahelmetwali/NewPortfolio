@@ -10,7 +10,6 @@ export default {
   theme: {
     extend: {
       screens: {
-        lap: { min: '1100px' },
         tab: { max: '1000px' },
         mob: { max: '767px' }
       }

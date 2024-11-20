@@ -104,8 +104,10 @@ const ContactBot = (props) => {
                             {visibleAnswers?.map((answer, answerInd) => (
                                 <div key={answerInd} className="grid">
                                     {
-                                        answer !== "abdullahelmetwali@gmail.com" ? <p className="bg-[var(--imp)] px-4 py-2 my-1 w-fit rounded-lg" key={answerInd}> {answer} </p>
-                                            : <a href={`mailto:${answer}`} target="_blank" className='border-[#5e5e5ec0] cursor-pointer border-[1px] px-4 py-2 my-1  w-fit rounded-full'> Send Message </a>
+                                        answer !== "abdullahelmetwali@gmail.com" ?
+                                            <p className="bg-[var(--imp)] px-4 py-2 my-1 w-fit rounded-lg" key={answerInd} dangerouslySetInnerHTML={{ __html: answer }} />
+                                            :
+                                            <a href={`mailto:${answer}`} target="_blank" className='border-[#5e5e5ec0] cursor-pointer border-[1px] px-4 py-2 my-1  w-fit rounded-full'> Send Message </a>
                                     }
                                 </div>
                             ))}
