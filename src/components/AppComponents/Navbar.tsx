@@ -15,7 +15,7 @@ const NavBar = ({ botAnswers, err }: { botAnswers: any; err: string }) => {
         <>
             <header className="fixed top-0 left-0 w-full z-50 py-9">
                 <nav className="flex justify-center">
-                    <ul className="blured py-2 px-6 rounded-3xl flex gap-11 text-xl ubuntu mob:text-lg">
+                    <ul className="blured z-50 py-2 px-6 rounded-3xl flex gap-11 text-xl ubuntu mob:text-lg">
                         <li>
                             <Link href={`/`} className={`${((pathname === '/' || pathname.includes('work')) && !contactBotView) ? 'opacity-100' : 'opacity-50'}`}
                                 onClick={() => setContactBotView(false)}

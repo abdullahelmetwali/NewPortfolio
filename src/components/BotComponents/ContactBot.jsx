@@ -16,7 +16,7 @@ const ContactBot = (props) => {
     const [visibleAnswers, setVisibleAnswers] = useState([]);
     const [showBotQuestions, setShowBotQuestions] = useState(false);
     const botScroller = useRef(null);
-    const botIntro = ["Hi!", "I'm Abdullah's Bot . I'm here to help you with any question you may need about Abdullah's Work . ", "How can I help you today ?"];
+    const botIntro = ["Hi!", "I&apos;m Abdullah&apos;s Bot . I&apos;m here to help you with any question you may need about Abdullah&apos;s Work . ", "How can I help you today ?"];
     const botQuestions = [
         "Sending you a digital high-five!",
         "What technologies do you use?",
@@ -58,9 +58,9 @@ const ContactBot = (props) => {
 
     return (
         <section
-            className={` -bottom-full right-3 w-1/3 h-[75dvh] mob:w-[98%] mob:right-1 contactBot ${contactBotView ? "bottom-0" : "-bottom-full"}`}
+            className={` -bottom-full right-3 w-1/3 h-[75dvh] mob:w-[98%] mob:right-1 contactBot ${contactBotView ? "bottom-0" : "-bottom-full"} z-50`}
         >
-            <header className="bg-[var(--imp)] flex justify-between items-center  w-full tracking-wide rounded-tr-xl textAcorn rounded-tl-xl p-4">
+            <header className="bg-[var(--imp)] flex justify-between items-center w-full tracking-wide rounded-tr-xl textAcorn rounded-tl-xl p-4">
                 <div>
                     <h2 className="textAcorn text-xl">Here&apos;s, Abdullah&apos;s Bot.</h2>
                     <p className="text-sm">Ask me a question.</p>
@@ -75,10 +75,10 @@ const ContactBot = (props) => {
                     className=" cursor-pointer"
                 />
             </header>
-            <main className="p-4 h-[88%] overflow-y-scroll" ref={botScroller}>
+            <main className="p-4 h-[88%] overflow-y-scroll z-50" ref={botScroller}>
                 <div className='my-4'>
                     {botIntro?.map((intro, index) => (
-                        <p className='bg-[var(--imp)] cursor-pointer w-fit px-4 py-1 my-1 rounded-lg' key={index}>{intro}</p>
+                        <p className='bg-[var(--imp)] cursor-pointer w-fit px-4 py-1 my-1 rounded-lg' key={index} dangerouslySetInnerHTML={{ __html: intro }} />
                     ))}
                 </div>
                 <BotQuestions
