@@ -6,10 +6,10 @@ import Link from "next/link";
 
 export async function generateMetadata({ params }: { params: any }) {
     const { projectName } = await params;
-    const { projectDT } = await GetProjectDetails({ projectName: projectName })
+    const { projectDT } = await GetProjectDetails({ projectName: projectName });
     return {
         title: projectDT?.fields?.projectName,
-        description: `${projectDT?.fields?.projectOverview} by Abdullah ELMetwali.`
+        description: `${projectDT?.fields?.projectOverView} by Abdullah ELMetwali.`
     }
 }
 
