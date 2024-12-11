@@ -28,7 +28,7 @@ const HomePage: () => Promise<JSX.Element> = async () => {
         {WorkProjects.map((project, index) => (
           <Link
             key={index}
-            href={`/work/${project.fields.projectName.replaceAll(" ", "").toLowerCase()}`}
+            href={`/work/${project.fields.url}`}
             className={`${(Math.floor(index / 2) % 2 === 0)
               ? (index % 2 === 0 ? 'col-span-2' : 'col-span-1')
               : (index % 2 === 0 ? 'col-span-1' : 'col-span-2')
